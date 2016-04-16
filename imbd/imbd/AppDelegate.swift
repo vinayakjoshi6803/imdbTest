@@ -21,23 +21,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem()
         splitViewController.delegate = self
         
-        applyAppearance()
+        applyAppTheme()
 
         
         return true
-    }
-
-    func applyAppearance(){
-    
-        UINavigationBar.appearance().barTintColor = UIColor(hexString: "#254773")
-        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
-        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
-        
-        UIBarButtonItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName:UIColor.whiteColor()], forState: UIControlState.Normal)
-        
-        UIToolbar.appearance().tintColor = UIColor.whiteColor()
-        UIToolbar.appearance().barTintColor = UIColor(hexString: "#254773")
-
     }
     
     func applicationWillResignActive(application: UIApplication) {
@@ -72,6 +59,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
             return true
         }
         return false
+    }
+    
+    // MARK: apply application default colors for navbar,toolbar etc
+    func applyAppTheme(){
+        
+        UINavigationBar.appearance().barTintColor = UIColor(hexString: HEXCOLORS.navbarColor.rawValue)
+        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
+        
+        UIBarButtonItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName:UIColor.whiteColor()], forState: UIControlState.Normal)
+        
+        UIToolbar.appearance().tintColor = UIColor.whiteColor()
+        UIToolbar.appearance().barTintColor = UIColor(hexString: HEXCOLORS.navbarColor.rawValue)
+        
     }
 
 }

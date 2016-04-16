@@ -15,6 +15,8 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet var toolBar: UIToolbar!
     var detailViewController: DetailViewController? = nil
     var objects = [AnyObject]()
+    let seasonsToList = 5
+   
     var season : Int = 1 {
         didSet {
         
@@ -22,11 +24,10 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
 
         }
     }
-    var episodes = [imdbEpisode]()
-
+    var episodes = [IMDBEpisode]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         pullEpisodesForSeason()
         
@@ -44,7 +45,7 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
         // 1
         let optionMenu = UIAlertController(title: nil, message: "Choose Season", preferredStyle: .ActionSheet)
         
-        for i in 1...5 {
+        for i in 1...seasonsToList {
             
             let action = UIAlertAction(title: "Season \(i)", style: .Default, handler: {
                 (alert: UIAlertAction!) -> Void in
@@ -74,17 +75,16 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
     
     func pullEpisodesForSeason (){
         
-        let imdbService : imdbServiceManager = imdbServiceManager()
+        let IMDBService : IMDBServiceManager = IMDBServiceManager()
         
-        imdbService.pullEpisodesListingForSeason(self.season, success: { (episodes) in
-            
-            self.episodes = episodes
-            self.tableView.performSelectorOnMainThread(#selector(UITableView.reloadData), withObject: self.tableView, waitUntilDone: true)
-            
-        }) { (error) in
-            print(error)
-        }
-
+            IMDBService.pullEpisodesListingForSeason(self.season, success: { (episodes) in
+                
+                self.episodes = episodes
+                reloadTableData(self.tableView)
+            }) { (error) in
+                print(error)
+            }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -122,7 +122,7 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
     
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.episodes.count
+        return self.episodes.count ?? 0
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -153,31 +153,4 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
         return "Season \(season)"
     }
 
-}
-
-
-extension UIColor {
-    public convenience init?(hexString: String) {
-        let r, g, b, a: CGFloat
-        
-        if hexString.hasPrefix("#") {
-            let start = hexString.startIndex.advancedBy(1)
-            let hexColor = hexString.substringFromIndex(start)
-            
-            let scanner = NSScanner(string: hexColor)
-            var hexNumber: UInt64 = 0
-            
-            if scanner.scanHexLongLong(&hexNumber) {
-                r = CGFloat((hexNumber & 0xff000000) >> 24) / 255
-                g = CGFloat((hexNumber & 0x00ff0000) >> 16) / 255
-                b = CGFloat((hexNumber & 0x0000ff00) >> 8) / 255
-                a = CGFloat(hexNumber & 0x000000ff) / 255
-                
-                self.init(red: r, green: g, blue: b, alpha: a)
-                return
-            }
-        }
-        
-        return nil
-    }
 }

@@ -13,9 +13,12 @@
 		2863A14C1CA861FF009CB9DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2863A14A1CA861FF009CB9DB /* Main.storyboard */; };
 		2863A14E1CA861FF009CB9DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2863A14D1CA861FF009CB9DB /* Assets.xcassets */; };
 		2863A1511CA861FF009CB9DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2863A14F1CA861FF009CB9DB /* LaunchScreen.storyboard */; };
-		2863A1591CA866B1009CB9DB /* imdbServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2863A1581CA866B1009CB9DB /* imdbServiceManager.swift */; };
-		2863A15B1CA8675E009CB9DB /* imdbEpisode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2863A15A1CA8675E009CB9DB /* imdbEpisode.swift */; };
-		289AD7C31CA8D98D00198A12 /* imdbEpisodeDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289AD7C21CA8D98D00198A12 /* imdbEpisodeDetails.swift */; };
+		2863A1591CA866B1009CB9DB /* IMDBServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2863A1581CA866B1009CB9DB /* IMDBServiceManager.swift */; };
+		2863A15B1CA8675E009CB9DB /* IMDBEpisode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2863A15A1CA8675E009CB9DB /* IMDBEpisode.swift */; };
+		289AD7C31CA8D98D00198A12 /* IMDBEpisodeDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289AD7C21CA8D98D00198A12 /* IMDBEpisodeDetails.swift */; };
+		6563551A1CC1C23800AAA99D /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656355191CC1C23800AAA99D /* Constant.swift */; };
+		6563551C1CC1C34D00AAA99D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6563551B1CC1C34D00AAA99D /* Extensions.swift */; };
+		656355231CC1D54100AAA99D /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656355221CC1D54100AAA99D /* Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,9 +30,12 @@
 		2863A14D1CA861FF009CB9DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2863A1501CA861FF009CB9DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2863A1521CA861FF009CB9DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2863A1581CA866B1009CB9DB /* imdbServiceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = imdbServiceManager.swift; sourceTree = "<group>"; };
-		2863A15A1CA8675E009CB9DB /* imdbEpisode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = imdbEpisode.swift; sourceTree = "<group>"; };
-		289AD7C21CA8D98D00198A12 /* imdbEpisodeDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = imdbEpisodeDetails.swift; sourceTree = "<group>"; };
+		2863A1581CA866B1009CB9DB /* IMDBServiceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMDBServiceManager.swift; sourceTree = "<group>"; };
+		2863A15A1CA8675E009CB9DB /* IMDBEpisode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMDBEpisode.swift; sourceTree = "<group>"; };
+		289AD7C21CA8D98D00198A12 /* IMDBEpisodeDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMDBEpisodeDetails.swift; sourceTree = "<group>"; };
+		656355191CC1C23800AAA99D /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		6563551B1CC1C34D00AAA99D /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		656355221CC1D54100AAA99D /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,15 +69,18 @@
 			isa = PBXGroup;
 			children = (
 				2863A1441CA861FF009CB9DB /* AppDelegate.swift */,
-				2863A1581CA866B1009CB9DB /* imdbServiceManager.swift */,
-				2863A15A1CA8675E009CB9DB /* imdbEpisode.swift */,
-				289AD7C21CA8D98D00198A12 /* imdbEpisodeDetails.swift */,
+				2863A1581CA866B1009CB9DB /* IMDBServiceManager.swift */,
+				2863A15A1CA8675E009CB9DB /* IMDBEpisode.swift */,
+				289AD7C21CA8D98D00198A12 /* IMDBEpisodeDetails.swift */,
 				2863A1461CA861FF009CB9DB /* MasterViewController.swift */,
 				2863A1481CA861FF009CB9DB /* DetailViewController.swift */,
 				2863A14A1CA861FF009CB9DB /* Main.storyboard */,
 				2863A14D1CA861FF009CB9DB /* Assets.xcassets */,
 				2863A14F1CA861FF009CB9DB /* LaunchScreen.storyboard */,
 				2863A1521CA861FF009CB9DB /* Info.plist */,
+				656355191CC1C23800AAA99D /* Constant.swift */,
+				6563551B1CC1C34D00AAA99D /* Extensions.swift */,
+				656355221CC1D54100AAA99D /* Utils.swift */,
 			);
 			path = imbd;
 			sourceTree = "<group>";
@@ -146,12 +155,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6563551A1CC1C23800AAA99D /* Constant.swift in Sources */,
 				2863A1491CA861FF009CB9DB /* DetailViewController.swift in Sources */,
+				656355231CC1D54100AAA99D /* Utils.swift in Sources */,
 				2863A1471CA861FF009CB9DB /* MasterViewController.swift in Sources */,
-				289AD7C31CA8D98D00198A12 /* imdbEpisodeDetails.swift in Sources */,
+				6563551C1CC1C34D00AAA99D /* Extensions.swift in Sources */,
+				289AD7C31CA8D98D00198A12 /* IMDBEpisodeDetails.swift in Sources */,
 				2863A1451CA861FF009CB9DB /* AppDelegate.swift in Sources */,
-				2863A1591CA866B1009CB9DB /* imdbServiceManager.swift in Sources */,
-				2863A15B1CA8675E009CB9DB /* imdbEpisode.swift in Sources */,
+				2863A1591CA866B1009CB9DB /* IMDBServiceManager.swift in Sources */,
+				2863A15B1CA8675E009CB9DB /* IMDBEpisode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

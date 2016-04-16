@@ -15,7 +15,7 @@ class DetailViewController: UIViewController,UITableViewDelegate, UITableViewDat
 
     var isdetailsLoaded : Bool = false
     
-    var episode: imdbEpisodeDetails? {
+    var episode: IMDBEpisodeDetails? {
         didSet {
             
             print(episode)
@@ -41,8 +41,8 @@ class DetailViewController: UIViewController,UITableViewDelegate, UITableViewDat
     
     func pullEpisodeDetails(imdbID : String?){
     
-        let imdbService : imdbServiceManager = imdbServiceManager()
-        imdbService.pullEpisodeDetails(imdbID!, success: { (episodeDetails) in
+        let IMDBService : IMDBServiceManager = IMDBServiceManager()
+        IMDBService.pullEpisodeDetails(imdbID!, success: { (episodeDetails) in
             self.isdetailsLoaded = true
             self.episode = episodeDetails
         }) { (error) in
@@ -52,8 +52,7 @@ class DetailViewController: UIViewController,UITableViewDelegate, UITableViewDat
     
     func configureView() {
         // Update the user interface for the detail item.
-        self.tableView.performSelectorOnMainThread(#selector(UITableView.reloadData), withObject: self.tableView, waitUntilDone: true)
-
+        reloadTableData(self.tableView)
     }
 
     override func viewDidLoad() {

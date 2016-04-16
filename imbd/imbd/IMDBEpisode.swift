@@ -1,5 +1,5 @@
 //
-//  imdbEpisode.swift
+//  IMDBEpisode.swift
 //  imbd
 //
 //  Created by Vinayak Bipin Joshi on 3/27/16.
@@ -9,7 +9,7 @@
 import Foundation
 
 
-public class imdbEpisode : NSObject{
+public class IMDBEpisode : NSObject{
     
     public var title : String?
     public var released : String?
