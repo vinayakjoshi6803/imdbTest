@@ -13,8 +13,7 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet var tableView: UITableView!
 
     @IBOutlet var toolBar: UIToolbar!
-    var detailViewController: DetailViewController? = nil
-    var objects = [AnyObject]()
+    lazy var detailViewController: DetailViewController? = nil
     let seasonsToList = 5
    
     var season : Int = 1 {
@@ -24,7 +23,7 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
 
         }
     }
-    var episodes = [IMDBEpisode]()
+   lazy var episodes = [IMDBEpisode]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -98,7 +97,7 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 
-                let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
+                guard let controller = (segue.destinationViewController as! UINavigationController).topViewController as? DetailViewController else {return}
                 navigationItem.title = nil
                 controller.imdbID = episodes[indexPath.row].imdbID
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
@@ -107,7 +106,7 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
         }
     }
 
-    // MARK: - Table View
+    // MARK: - TableView delegates
 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1

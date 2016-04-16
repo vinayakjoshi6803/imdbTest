@@ -14,12 +14,14 @@ class DetailViewController: UIViewController,UITableViewDelegate, UITableViewDat
     @IBOutlet var tableView: UITableView! = UITableView()
 
     var isdetailsLoaded : Bool = false
+   
+    enum FIELDS: String {
+        case Title, Rated, Released, Season, Episode, Runtime
+    }
     
     var episode: IMDBEpisodeDetails? {
         didSet {
-            
-            print(episode)
-            
+    
             if  episode != nil {
                 // Update the view.
                 self.configureView()
@@ -53,14 +55,8 @@ class DetailViewController: UIViewController,UITableViewDelegate, UITableViewDat
     func configureView() {
         // Update the user interface for the detail item.
         reloadTableData(self.tableView)
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
         self.title = self.episode?.title
-        
-        // Do any additional setup after loading the view, typically from a nib.
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -74,11 +70,10 @@ class DetailViewController: UIViewController,UITableViewDelegate, UITableViewDat
     }
     
       func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
+
         if self.isdetailsLoaded {
             return 6
         }
-        
         return 0
         
     }
@@ -92,42 +87,42 @@ class DetailViewController: UIViewController,UITableViewDelegate, UITableViewDat
         }
         
         switch indexPath.row {
-                case 0:
-                    cell!.textLabel!.text = "Title"
+                case FIELDS.Title.hashValue:
+                    cell!.textLabel!.text = FIELDS.Title.rawValue
                     cell!.detailTextLabel?.text = self.episode!.title
                     cell!.detailTextLabel?.textAlignment = NSTextAlignment.Left
                     break
                     
-                case 1:
-                    cell!.textLabel!.text = "Rated"
+                case FIELDS.Rated.hashValue:
+                    cell!.textLabel!.text = FIELDS.Rated.rawValue
                     cell!.detailTextLabel?.text = self.episode!.rated
                     cell!.detailTextLabel?.textAlignment = NSTextAlignment.Left
 
 
                     break
-                case 2:
-                    cell!.textLabel!.text = "Released"
+                case FIELDS.Released.hashValue:
+                    cell!.textLabel!.text = FIELDS.Released.rawValue
                     cell!.detailTextLabel?.text = self.episode!.released
                     cell!.detailTextLabel?.textAlignment = NSTextAlignment.Left
 
 
                     break
-                case 3:
-                    cell!.textLabel!.text = "Season"
+                case FIELDS.Season.hashValue:
+                    cell!.textLabel!.text = FIELDS.Season.rawValue
                     cell!.detailTextLabel?.text =  self.episode!.season
                     cell!.detailTextLabel?.textAlignment = NSTextAlignment.Left
 
 
                     break
-                case 4:
-                    cell!.textLabel!.text = "Episode"
+                case FIELDS.Episode.hashValue:
+                    cell!.textLabel!.text = FIELDS.Episode.rawValue
                     cell!.detailTextLabel?.text = self.episode!.episode
                     cell!.detailTextLabel?.textAlignment = NSTextAlignment.Left
 
 
                     break
-                case 5:
-                    cell!.textLabel!.text = "Runtime"
+                case FIELDS.Runtime.hashValue:
+                    cell!.textLabel!.text = FIELDS.Runtime.rawValue
                     cell!.detailTextLabel?.text = self.episode!.runtime
                     cell!.detailTextLabel?.textAlignment = NSTextAlignment.Left
 

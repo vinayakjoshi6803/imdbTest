@@ -19,7 +19,7 @@ public class IMDBEpisode : NSObject{
     
     convenience init(responseObject : Dictionary < String, AnyObject> ) {
         self.init()
-        self.title = responseObject["Title"] as! String?
+        self.title = responseObject["Title"] as! String? //PLEASE NOTE: NOT FORMATTING ANY FIELD HENCE ALL KEPT AS A STRING
         self.released = responseObject["Released"] as! String?
         self.episode = responseObject["Episode"] as! String?
         self.imdbRating = responseObject["imdbRating"] as! String?
