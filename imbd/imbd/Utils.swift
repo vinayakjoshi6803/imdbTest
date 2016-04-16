@@ -15,3 +15,18 @@ public func reloadTableData(tableView: UITableView){
         tableView.reloadData()
     })
 }
+
+
+// MARK: apply application default colors for navbar,toolbar etc
+func applyAppTheme(){
+    
+    UINavigationBar.appearance().barTintColor = UIColor(hexString: HEXCOLORS.navbarColor.rawValue)
+    UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+    UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
+    
+    UIBarButtonItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName:UIColor.whiteColor()], forState: UIControlState.Normal)
+    
+    UIToolbar.appearance().tintColor = UIColor.whiteColor()
+    UIToolbar.appearance().barTintColor = UIColor(hexString: HEXCOLORS.navbarColor.rawValue)
+    
+}
